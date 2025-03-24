@@ -1,24 +1,12 @@
-export default class Transaction {
-    /**
-     * @param {number} id - Transaction ID
-     * @param {number} amount - Amount in cents
-     * @param {string} type - 'credit' or 'debit'
-     * @param {string|null} description - Optional transaction description
-     * @param {string} accountNumber - Associated account number (for future use)
-     * @param {Date} createdAt - Timestamp of creation
-     * @param {Date} updatedAt - Timestamp of last update
-     */
-    constructor(id, amount, type, description, accountNumber, createdAt, updatedAt) {
-      this.id = id;
-      this.amount = amount;
-      this.type = type;
-      this.description = description || null;
-      this.accountNumber = accountNumber;
-      this.createdAt = createdAt;
-      this.updatedAt = updatedAt;
-    }
-  }
-  
+export const createTransaction = (data) => ({
+    id: data.id,
+    amount: data.amount,
+    type: data.type,
+    description: data.description || null,
+    accountNumber: data.account_number,
+    createdAt: new Date(data.created_at),
+    updatedAt: new Date(data.updated_at),
+  });  
 
 
-// NOT USING THIS AS ... IDK, NODE JUST DOESNT NEED MODELS I GUESS?
+// NOT USING THIS AS ... IDK, RUNNING OUT OF TIME
