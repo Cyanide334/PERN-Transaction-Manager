@@ -1,3 +1,5 @@
+-- create the transactions table
+
 create table if not exists transactions (
     id serial primary key, -- would much rather prefer a uuid v4 based id but for simplicity's sake
     amount_cents integer not null check (amount_cents > 0), -- store in cents

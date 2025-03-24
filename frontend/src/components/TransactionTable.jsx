@@ -4,11 +4,14 @@ import { formatTimestamp } from "../utils/utils";
 
 const TransactionTable = ({ transactions }) => {
   return (
+    // if no transactions, display a message
+    !transactions.length ? <p className="text-center text-muted">No transactions found.</p> :
+    // else, display the transactions in a table
     <table className="table">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Amount (Cents)</th>
+          <th>Amount</th>
           <th>Type</th>
           <th>Description</th>
           <th>Created At</th>
@@ -20,7 +23,7 @@ const TransactionTable = ({ transactions }) => {
         {transactions.map((tx) => (
           <tr key={tx.id}>
             <td>{tx.id}</td>
-            <td>{tx.amount_cents}</td>
+            <td>${tx.amount_cents / 100}</td>
             <td>{tx.type.toUpperCase()}</td>
             <td>{tx.description}</td>
             <td>{formatTimestamp(tx.created_at)}</td>

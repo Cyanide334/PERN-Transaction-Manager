@@ -5,6 +5,7 @@ export const getTransactions = async (req, res) => {
     const transactions = await transactionService.fetchAllTransactions();
     res.json(transactions);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: error.message });
   }
 };
@@ -21,7 +22,7 @@ export const getTransaction = async (req, res) => {
 
 export const createTransaction = async (req, res) => {
   try {
-    const { amount, type, description, account_number } = req.body;
+    const { amount_cents, type, description, account_number } = req.body;
     const transaction = await transactionService.addTransaction(amount_cents, type, description, account_number);
     res.status(201).json(transaction);
   } catch (error) {
