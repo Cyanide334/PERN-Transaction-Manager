@@ -8,7 +8,7 @@ To run the app locally, follow these steps:
    This project requires Node.js. If you don’t have it installed, download it from [nodejs.org](https://nodejs.org/).
 
 2. **Run the Setup Script**  
-   We’ve created a `run.sh` script that automates everything. Simply run:
+   I've created a `run.sh` script that automates everything. Simply run:
 
    ```bash
    ./run.sh

@@ -14,7 +14,7 @@ echo "✅ .env files downloaded!"
 # Navigate to frontend, install dependencies, and start it
 echo "📦 Installing frontend dependencies..."
 cd frontend || exit
-npm install
+npm install --legacy-peer-deps || npm install --force
 echo "🛠 Starting React frontend..."
 npm start &
 
