@@ -13,17 +13,23 @@ const ViewTransactionPage = () => {
   useEffect(() => {
     const loadTransaction = async () => {
       setLoading(true);
-      const tx = await fetchTransactionById(id);
-      if (!tx) {
+      try {
+        const tx = await fetchTransactionById(id);
+        if (!tx) {
+          throw new Error("Transaction not found!");
+        }
+        setTransaction(tx);
+      } catch (error) {
+        console.error("Error fetching transaction:", error);
         alert("Transaction not found!");
         navigate("/");
-        return;
+      } finally {
+        setLoading(false);
       }
-      setTransaction(tx);
-      setLoading(false);
     };
     loadTransaction();
   }, [id, navigate]);
+  
 
   return (
     <div className="container mt-4">
