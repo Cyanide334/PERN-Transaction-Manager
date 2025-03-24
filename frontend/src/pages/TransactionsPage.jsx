@@ -33,7 +33,7 @@ const TransactionsPage = () => {
 
   return (
     <div className="container mt-4">
-      <h1>Transaction Manager</h1>
+      <h1 className="text-center mb-4 text-muted">Transaction Manager</h1>
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h2>All Transactions</h2>
         <div>

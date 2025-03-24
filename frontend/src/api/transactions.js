@@ -12,7 +12,8 @@ export const fetchTransactionById = async (id) => {
     return response.data;
 }
 
-// Adding account_number here because it's required in the backend, and I didnt have time to refactor the backend to remove it
+// Adding account_number here because it's required in the backend,
+// and I didnt have time to refactor the backend to remove it
 export const addTransaction = async (transaction) => {
     transaction.account_number = 1000;
     const response = await axios.post(API_URL, transaction);
